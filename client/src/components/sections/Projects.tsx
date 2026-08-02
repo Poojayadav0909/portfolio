@@ -1,8 +1,6 @@
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, FolderGit2 } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import type { ReactNode } from "react";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -12,71 +10,98 @@ function GithubIcon({ className }: { className?: string }) {
   );
 }
 
-const projects = [
+interface Project {
+  title: string;
+  subtitle: string;
+  github?: string;
+  live?: string;
+  description: ReactNode[];
+}
+
+const projects: Project[] = [
   {
-    title: "Project Alpha",
-    description: "A full-stack application built with React, Node.js, and PostgreSQL. Features real-time data processing and a responsive dashboard.",
-    tags: ["React", "Node.js", "PostgreSQL", "WebSocket"],
-    github: "https://github.com/poojayadav/project-alpha",
-    live: "https://project-alpha.vercel.app",
+    title: "VOKAI",
+    subtitle: "Android-First Learning Companion",
+    live: "https://docs-vokai.vercel.app",
+    description: [
+      "An Android-first learning companion designed for a focused, personalised 90-day coding journey.",
+      "Combines a calm, distraction-free mobile learning experience with a robust backend.",
+      "FastAPI backend that securely stores and manages a learner's profile, syllabus, daily check-ins, streaks, and progress garden.",
+    ],
   },
   {
-    title: "Rust CLI Tool",
-    description: "A command-line utility in Rust for efficient file processing and analysis. Focus on performance and memory safety.",
-    tags: ["Rust", "CLI", "Systems Programming"],
-    github: "https://github.com/poojayadav/rust-cli",
+    title: "Rust Node Manager (rnm)",
+    subtitle: "Rust Node Manager",
+    github: "https://github.com/aadityakumarsah/rnm",
+    description: [
+      "A minimal Node.js version manager written in Rust to install, switch, and manage multiple Node.js versions.",
+      "Fast & tiny — single ~1 MB Rust binary with absolutely no runtime dependencies.",
+      "Per-project versions — switch dynamically per directory or globally via rnm.",
+    ],
   },
   {
-    title: "System Design Library",
-    description: "A curated collection of system design patterns, architectures, and implementations in Java and Python.",
-    tags: ["Java", "Python", "System Design", "Distributed Systems"],
-    github: "https://github.com/poojayadav/system-design",
+    title: "Clario",
+    subtitle: "Your Daily Emotional Companion",
+    github: "https://github.com/aadityakumarsah/Clario-Well",
+    live: "https://docs-clario.pages.dev/",
+    description: [
+      "A full-stack mental wellness web app built for moments of anxiety, stress, or emotional fog.",
+      "Listens, guides, and meets you where you are without judgment or generic advice.",
+      "Weaves together AI conversation, biofeedback, and creative expression into a single daily ritual.",
+    ],
   },
 ];
 
 export function Projects() {
   return (
-    <AnimatedSection id="projects" className="py-24 px-4 bg-muted/30">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-2 text-center">Featured Projects</h2>
-        <div className="w-20 h-1 bg-primary mx-auto mb-4 rounded-full" />
-        <p className="text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-          Things I've built
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <Card key={project.title} className="flex flex-col group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
-                <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center mb-2 group-hover:bg-primary/20 transition-colors">
-                  <FolderGit2 className="size-5 text-primary" />
-                </div>
-                <CardTitle className="text-lg">{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
-                  ))}
-                </div>
-              </CardContent>
-              <CardFooter className="gap-2">
-                <Button variant="outline" size="sm" asChild>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <GithubIcon className="size-4" /> Code
-                  </a>
-                </Button>
+    <AnimatedSection id="projects" className="scroll-mt-16">
+      <h2 className="text-xl font-bold uppercase tracking-widest text-white">Projects</h2>
+      <div className="mt-8 space-y-4">
+        {projects.map((project) => (
+          <div
+            key={project.title}
+            className="rounded-xl border border-zinc-700/50 bg-zinc-900/20 p-5 hover:border-indigo-500/50 transition-colors agent-target"
+          >
+            <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+              <div>
+                <h3 className="font-semibold leading-snug text-white">{project.title}</h3>
+                <p className="mt-0.5 text-xs text-zinc-400">{project.subtitle}</p>
+              </div>
+              <div className="flex items-center gap-3 pt-0.5">
                 {project.live && (
-                  <Button variant="default" size="sm" asChild>
-                    <a href={project.live} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="size-4" /> Live
-                    </a>
-                  </Button>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
+                  >
+                    Docs
+                    <ExternalLink className="ml-1 inline-block h-3.5 w-3.5 shrink-0 translate-y-0.5 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+                  </a>
                 )}
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link inline-flex items-center text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
+                  >
+                    <GithubIcon className="mr-1 inline-block h-3.5 w-3.5 shrink-0 translate-y-0.5" />
+                    Code
+                  </a>
+                )}
+              </div>
+            </div>
+            <ul className="mt-3 space-y-2 text-sm leading-normal text-zinc-300">
+              {project.description.map((item, i) => (
+                <li key={i} className="flex gap-2">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-indigo-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </AnimatedSection>
   );

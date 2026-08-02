@@ -1,72 +1,76 @@
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, MapPin, Send } from "lucide-react";
-import type { FormEvent } from "react";
+import { Mail, MapPin } from "lucide-react";
+
+function GithubIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+    </svg>
+  );
+}
+
+function LinkedinIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+    </svg>
+  );
+}
+
+const socials = [
+  {
+    label: "GitHub",
+    href: "https://github.com/Poojayadav0909",
+    icon: GithubIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/pooja-yadav-07a2b42b1/",
+    icon: LinkedinIcon,
+  },
+  {
+    label: "X",
+    href: "https://x.com/poojaasa",
+    icon: XIcon,
+  },
+];
 
 export function Contact() {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const name = formData.get("name") as string;
-    const message = formData.get("message") as string;
-    window.location.href = `mailto:pooja@example.com?subject=${encodeURIComponent(`Contact from ${name}`)}&body=${encodeURIComponent(`Hi Pooja,\n\n${message}`)}`;
-  };
-
   return (
-    <AnimatedSection id="contact" className="py-24 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-2 text-center">Get in Touch</h2>
-        <div className="w-20 h-1 bg-primary mx-auto mb-4 rounded-full" />
-        <p className="text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-          Have a project in mind? Let's build something together.
-        </p>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              I'm always open to discussing new projects, creative ideas, or opportunities to
-              be part of your vision. Feel free to reach out!
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 text-muted-foreground group">
-                <span className="size-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Mail className="size-5 text-primary" />
-                </span>
-                <span>pooja@example.com</span>
-              </div>
-              <div className="flex items-center gap-3 text-muted-foreground group">
-                <span className="size-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <MapPin className="size-5 text-primary" />
-                </span>
-                <span>India</span>
-              </div>
-            </div>
-          </div>
-          <Card className="hover:shadow-md transition-shadow">
-            <CardHeader>
-              <CardTitle className="text-lg">Send a Message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" name="name" placeholder="Your name" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" name="message" placeholder="Your message..." required className="min-h-[120px]" />
-                </div>
-                <Button type="submit" className="w-full gap-2">
-                  <Send className="size-4" /> Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+    <AnimatedSection id="contact" className="scroll-mt-16">
+      <h2 className="text-xl font-bold uppercase tracking-widest text-white">Get in Touch</h2>
+      <p className="mt-4 leading-relaxed text-zinc-300">
+        Have a project in mind? Let's build something together.
+      </p>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 agent-target">
+        <a
+          href="mailto:poojaikrahi@gmail.com"
+          className="flex items-center gap-3 rounded-lg border border-zinc-700/50 bg-zinc-900/20 px-4 py-3 text-sm text-zinc-300 hover:border-indigo-500/50 hover:text-indigo-300 transition-colors"
+        >
+          <Mail className="size-4 shrink-0" /> poojaikrahi@gmail.com
+        </a>
+        <div className="flex items-center gap-3 rounded-lg border border-zinc-700/50 bg-zinc-900/20 px-4 py-3 text-sm text-zinc-300">
+          <MapPin className="size-4 shrink-0" /> Nepal
         </div>
+        {socials.map((s) => (
+          <a
+            key={s.label}
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 rounded-lg border border-zinc-700/50 bg-zinc-900/20 px-4 py-3 text-sm text-zinc-300 hover:border-indigo-500/50 hover:text-indigo-300 transition-colors"
+          >
+            <s.icon className="size-4 shrink-0" /> {s.label}
+          </a>
+        ))}
       </div>
     </AnimatedSection>
   );

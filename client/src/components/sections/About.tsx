@@ -1,52 +1,42 @@
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { Card, CardContent } from "@/components/ui/card";
-import { Code2, Brain, Server, BookOpen } from "lucide-react";
-
-const stats = [
-  { icon: Code2, label: "Languages", value: "4+" },
-  { icon: Server, label: "Projects", value: "10+" },
-  { icon: Brain, label: "DSA Problems", value: "500+" },
-  { icon: BookOpen, label: "System Design", value: "Deep Dive" },
-];
+import clarioImage from "../../../public/clario.png";
 
 export function About() {
   return (
-    <AnimatedSection id="about" className="py-24 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-2 text-center">About Me</h2>
-        <div className="w-20 h-1 bg-primary mx-auto mb-4 rounded-full" />
-        <p className="text-muted-foreground text-center mb-12 max-w-lg mx-auto">
-          A quick glance at my journey so far
+    <AnimatedSection id="about" className="scroll-mt-16">
+      <h2 className="text-xl font-bold uppercase tracking-widest text-white agent-target p-1 rounded inline-block">About</h2>
+      <p className="mt-4 leading-relaxed text-zinc-300">
+        I'm a Software Engineer passionate about building scalable systems and delightful
+        user experiences. My expertise spans the <strong className="text-white">MERN stack</strong>,{" "}
+        <strong className="text-white">Java</strong>, <strong className="text-white">Python</strong>,
+        and <strong className="text-white">system design</strong>.
+      </p>
+      <p className="mt-4 leading-relaxed text-zinc-300">
+        Currently working on systems programming with <strong className="text-white">Rust</strong>, I enjoy
+        the full spectrum of development — from REST APIs to performant
+        low-level code.
+      </p>
+      <p className="mt-4 leading-relaxed text-zinc-300">
+        Previously interned at <strong className="text-white">TD Home Decor</strong>, where I
+        searched for leads and built websites for them.
+      </p>
+      <a
+        href="https://docs-clario.pages.dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-4 flex flex-col sm:flex-row items-center gap-6 rounded-xl border border-zinc-700/50 bg-zinc-900/20 p-5 hover:border-indigo-500/50 transition-colors group"
+      >
+        <img
+          src={clarioImage}
+          alt="Clario"
+          className="size-20 shrink-0 rounded-xl object-cover border border-zinc-700/50"
+        />
+        <p className="leading-relaxed text-zinc-300">
+          I've built and maintained <strong className="text-white">Clario</strong>, serving{" "}
+          <strong className="text-white">5,000+ active users</strong>. My expertise lies at the
+          intersection of robust backend infrastructure and delightful user experiences.
         </p>
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              I'm a Software Engineer passionate about building scalable systems and delightful
-              user experiences. My expertise spans the <strong>MERN stack</strong>,{" "}
-              <strong>Java</strong>, <strong>Python</strong>, and <strong>system design</strong>.
-            </p>
-            <p>
-              Currently exploring systems programming with <strong>Rust</strong>, I enjoy the full
-              spectrum of development — from REST APIs and distributed systems to performant low-level code.
-            </p>
-            <p>
-              Previously at <strong>aiEcho</strong> and <strong>Delta</strong>, I contributed to
-              impactful projects across the stack.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat) => (
-              <Card key={stat.label} className="hover:shadow-md transition-shadow">
-                <CardContent className="p-4 flex flex-col items-center text-center gap-2">
-                  <stat.icon className="size-6 text-primary" />
-                  <p className="text-2xl font-bold">{stat.value}</p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
+      </a>
     </AnimatedSection>
   );
 }
