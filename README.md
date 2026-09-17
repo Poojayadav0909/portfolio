@@ -1,25 +1,89 @@
 # 🌸 Pooja Yadav — Portfolio
 
-A personal portfolio website built **from scratch by me, Pooja Yadav** — with every part hand-coded.
+A personal website built by ** me pooja yadav** to showcase my projects,skills,journey,and work as a young developer.
 
-### ✨ About
+## Description
 
-This portfolio is a place to showcase who I am, what I build, and what I’m learning as a developer.
+This is my personal portfolio website, designed and handcoded by me from scratch, It is a place where I can showcase who I am, what i have build, and what I am currently learning as a new bie.
 
-I built it using:
+The portfolio is built using React.js, bun.js, and CSS I chose bun after researching javascript runtimes and being interested in its speed and easiness
 
-* ⚛️ **React.js** — for building the UI
-* 🥟 **Bun.js** — as the JavaScript runtime and package manager
-* 🎨 **CSS** — for the design and styling
+There is currently no backend, because  im focusing on learning react.js and improving my frontend development skills.
 
-There is **no backend yet**, since I’m currently learning React.js and focusing on getting comfortable with frontend development.
+The project is still a work in progress, and I plan to continue expanding it with more projects, features, animations, and improvements as I learn.
 
-I chose **Bun.js** after researching JavaScript runtimes and being interested in its speed and developer experience.
+> Built with curiosity, and a lot of ❤️ by Pooja Yadav**.
 
-### 🚀 What's Next?
+## Screenshots
 
-This portfolio is still a work in progress. I’m planning to keep expanding it with more projects, features, and improvements as I learn.
+Add at least one screenshot of the portfolio here.
 
-> Built with curiosity, code, and a lot of ❤️ by **Pooja Yadav**.
+Example:
 
-⭐ If you like it, feel free to check out the code and follow along with my journey!
+![Portfolio Screenshot](./screenshot.png)
+
+## Getting Started
+
+### Dependencies
+
+Before running the project, make sure you have:
+
+* node.js or **Bun.js**
+* A modern web browser such as Chrome, Safari.
+* **Git** (optional, if cloning the repository)
+
+The project is primarily built and run using **Bun.js**.
+
+### Installing
+
+Clone the repository:
+
+```bash
+git clone [me](https://github.com/Poojayadav0909/portfolio)
+```
+
+Move into the project folder:
+
+```bash
+cd client
+```
+
+Install the dependencies:
+
+```bash
+bun install
+```
+
+### Executing program
+
+Start the development server:
+
+```bash
+bun run dev
+```
+
+Then open the local URL shown in your terminal, usually->
+
+```text
+http://localhost:3000
+```
+
+The exact port may be different depending on your project configuration.
+
+## Help
+
+If the project does not start, try reinstalling the dependencies:
+
+```bash
+rm -rf node_modules
+bun install
+bun run dev
+```
+
+If Bun is not installed, install it from the official Bun website.
+
+Make sure you are running the commands from the project directory.
+
+## License
+
+This project is currently a personal portfolio project. No specific open-source license has been added yet.
