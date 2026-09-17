@@ -20,7 +20,8 @@ Add at least one screenshot of the portfolio here.
 
 Example:
 
-![Portfolio Screenshot](./screenshot.png)
+![Portfolio Screenshot](./ss.png)
+![Portfolio Screenshot](./ss1.png)
 
 ## Getting Started
 
